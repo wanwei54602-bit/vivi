@@ -9,7 +9,7 @@
       content="创摄萌（萌创次元团队）专注 ACG 漫展影像创作、品牌展台摄影摄像与媒体内容传播。"
     />
     <title>创摄萌 · 让每一份热爱，都被看见</title>
-    <link rel="stylesheet" href="./styles.css?v=20261029-11" />
+    <link rel="stylesheet" href="./styles.css?v=20261030-15" />
   </head>
   <body>
     <a class="skip-link" href="#main">跳到主要内容</a>
@@ -108,13 +108,13 @@
             <p>
               我们将内容制作与多账号传播结合，围绕每场活动与品牌的独特气质，提供从策划、拍摄、快剪到矩阵发布的一体化内容支持。
             </p>
-            <div class="stat-row">
-              <div>
-                <strong>2019～2026</strong><span>持续深耕漫展现场多年</span>
-              </div>
-              <div><strong>7+</strong><span>内容创作方向</span></div>
-              <div><strong>全周期</strong><span>展前 · 展中 · 展后</span></div>
+          </div>
+          <div class="stat-row reveal">
+            <div>
+              <strong>2019～2026</strong><span>持续深耕漫展现场多年</span>
             </div>
+            <div><strong>7+</strong><span>内容创作方向</span></div>
+            <div><strong>全周期</strong><span>展前 · 展中 · 展后</span></div>
           </div>
         </div>
       </section>
@@ -187,16 +187,18 @@
               <article class="case-hero">
                 <div class="case-visual">
                   <video
+                    class="hls-video"
                     controls
+                    autoplay
+                    loop
                     muted
                     playsinline
                     preload="metadata"
+                    data-hls="./assets/hls/case-bw/index.m3u8"
+                    data-fallback="./assets/media/bw-day2.mp4"
                     poster="./assets/media/bw-day2.jpg"
                     aria-label="BW2026《棕色尘埃2》展台影像"
-                  >
-                    <source src="./assets/media/bw-day2.mp4" type="video/mp4" />
-                  </video>
-                  <span class="inline-video-note">点击播放 · 声音默认关闭</span>
+                  ></video>
                 </div>
                 <div class="case-info">
                   <p class="tag">FEATURED CASE · 2026</p>
@@ -236,16 +238,18 @@
               <article class="case-hero">
                 <div class="case-visual">
                   <video
+                    class="hls-video"
                     controls
+                    autoplay
+                    loop
                     muted
                     playsinline
                     preload="metadata"
+                    data-hls="./assets/hls/case-firefly/index.m3u8"
+                    data-fallback="./assets/media/firefly-bd2.mp4"
                     poster="./assets/media/firefly-bd2.jpg"
                     aria-label="萤火虫漫展《棕色尘埃2》展台影像"
-                  >
-                    <source src="./assets/media/firefly-bd2.mp4" type="video/mp4" />
-                  </video>
-                  <span class="inline-video-note">点击播放 · 声音默认关闭</span>
+                  ></video>
                 </div>
                 <div class="case-info">
                   <p class="tag">FEATURED CASE · FIREFLY</p>
@@ -302,6 +306,7 @@
                 class="project-video video-trigger"
                 type="button"
                 data-video="./assets/media/shenzhen-gamefest.mp4"
+                data-hls="./assets/hls/project-shenzhen/index.m3u8"
                 data-title="2023 深圳国际电玩节"
               >
                 <b>2023</b>
@@ -312,6 +317,7 @@
                 class="project-video video-trigger"
                 type="button"
                 data-video="./assets/media/manhua-festival.mp4"
+                data-hls="./assets/hls/project-manhua/index.m3u8"
                 data-title="第二届深圳漫画节"
               >
                 <b>2025</b>
@@ -322,6 +328,7 @@
                 class="project-video video-trigger"
                 type="button"
                 data-video="./assets/media/dongwan.mp4"
+                data-hls="./assets/hls/project-dongwan/index.m3u8"
                 data-title="深圳动玩嘉年华"
               >
                 <b>2024</b>
@@ -332,6 +339,7 @@
                 class="project-video video-trigger"
                 type="button"
                 data-video="./assets/media/sanguosha.mp4"
+                data-hls="./assets/hls/project-sanguosha/index.m3u8"
                 data-title="广州三国杀界王赛"
               >
                 <b>2023</b>
@@ -347,7 +355,7 @@
         <div class="container experience-grid">
           <div class="experience-sticky reveal">
             <div class="section-kicker"><span>04</span> 媒体合作经历</div>
-            <h2>长期深耕漫展现场，<br /><i>与热爱同行。</i></h2>
+            <h2><span class="experience-heading-line">长期深耕漫展现场，</span><br /><i>与热爱同行。</i></h2>
             <p>
               不止记录展会当天。我们围绕不同阶段创作内容，让一场活动拥有完整的传播周期。
             </p>
@@ -890,7 +898,9 @@
       <div class="container">
         <span>创摄萌 · 萌创次元团队</span>
         <p>让精彩被记录，让内容被传播，让热爱持续发光。</p>
-        <a href="#top">回到顶部 ↑</a>
+        <a class="back-to-top" href="#top" data-back-to-top aria-label="回到顶部">
+          <span>回到顶部</span><b aria-hidden="true">↑</b>
+        </a>
       </div>
     </footer>
 
@@ -908,6 +918,7 @@
     <div class="toast" role="status" aria-live="polite" data-toast>
       已复制微信号
     </div>
-    <script src="./script.js?v=20261029-10"></script>
+    <script src="./vendor/hls.min.js"></script>
+    <script src="./script.js?v=20261029-13"></script>
   </body>
 </html>

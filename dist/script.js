@@ -7,12 +7,18 @@ const modal = document.querySelector("[data-video-modal]");
 const modalVideo = document.querySelector("[data-modal-video]");
 const modalTitle = document.querySelector("[data-modal-title]");
 const toast = document.querySelector("[data-toast]");
+const backToTop = document.querySelector("[data-back-to-top]");
 
+function updateScrollUi() {
+  header.classList.toggle("scrolled", scrollY > 24);
+  backToTop.classList.toggle("visible", scrollY > innerHeight * 0.7);
+}
 addEventListener(
   "scroll",
-  () => header.classList.toggle("scrolled", scrollY > 24),
+  updateScrollUi,
   { passive: true },
 );
+updateScrollUi();
 menu.addEventListener("click", () => {
   const open = !nav.classList.contains("open");
   nav.classList.toggle("open", open);
@@ -58,6 +64,11 @@ const casePrevious = caseCarousel.querySelector("[data-case-prev]");
 const caseNext = caseCarousel.querySelector("[data-case-next]");
 let activeCase = 0;
 
+function playCaseVideo(video) {
+  if (!video) return;
+  video.play().catch(() => {});
+}
+
 function updateCaseUi(index) {
   activeCase = index;
   caseIndex.textContent = String(index + 1).padStart(2, "0");
@@ -66,6 +77,12 @@ function updateCaseUi(index) {
   );
   casePrevious.disabled = index === 0;
   caseNext.disabled = index === caseSlides.length - 1;
+  caseSlides.forEach((slide, slideIndex) => {
+    const video = slide.querySelector("video");
+    if (!video) return;
+    if (slideIndex === index) playCaseVideo(video);
+    else video.pause();
+  });
 }
 function showCase(index) {
   const target = Math.max(0, Math.min(index, caseSlides.length - 1));
@@ -178,6 +195,7 @@ creatorWorks.forEach(({ name, prefix, titles }) => {
     card.type = "button";
     card.className = "work-card video-trigger";
     card.dataset.video = `./assets/team-work-2026/${prefix}-${number}.mp4`;
+    card.dataset.hls = `./assets/hls/${prefix}-${number}/index.m3u8`;
     card.dataset.title = `${name} · ${title}`;
     image.src = `./assets/team-work-2026/${prefix}-${number}.webp`;
     image.alt = `${title}作品封面`;
@@ -211,11 +229,61 @@ creatorWorks.forEach(({ name, prefix, titles }) => {
   requestAnimationFrame(updateWorkControls);
 });
 
+const hlsPlayers = new WeakMap();
+function destroyHls(video) {
+  const hls = hlsPlayers.get(video);
+  if (hls) {
+    hls.destroy();
+    hlsPlayers.delete(video);
+  }
+}
+function loadVideoSource(video, hlsSource, fallbackSource) {
+  destroyHls(video);
+  video.removeAttribute("src");
+  if (hlsSource && window.Hls?.isSupported()) {
+    const hls = new Hls({
+      enableWorker: true,
+      startLevel: -1,
+      maxBufferLength: 20,
+      backBufferLength: 10,
+    });
+    hls.loadSource(hlsSource);
+    hls.attachMedia(video);
+    hls.on(Hls.Events.MANIFEST_PARSED, () => {
+      const slide = video.closest(".case-hero");
+      if (video.autoplay && (!slide || caseSlides[activeCase] === slide)) {
+        playCaseVideo(video);
+      }
+    });
+    hls.on(Hls.Events.ERROR, (_event, data) => {
+      if (!data.fatal) return;
+      destroyHls(video);
+      video.src = fallbackSource;
+      video.load();
+      const slide = video.closest(".case-hero");
+      if (video.autoplay && (!slide || caseSlides[activeCase] === slide)) {
+        playCaseVideo(video);
+      }
+    });
+    hlsPlayers.set(video, hls);
+    return;
+  }
+  if (hlsSource && video.canPlayType("application/vnd.apple.mpegurl")) {
+    video.src = hlsSource;
+    return;
+  }
+  video.src = fallbackSource;
+}
+
+document.querySelectorAll(".hls-video").forEach((video) =>
+  loadVideoSource(video, video.dataset.hls, video.dataset.fallback),
+);
+
 let lastVideoTrigger = null;
 document.querySelectorAll(".video-trigger").forEach((button) =>
   button.addEventListener("click", () => {
     lastVideoTrigger = button;
-    modalVideo.src = button.dataset.video;
+    loadVideoSource(modalVideo, button.dataset.hls, button.dataset.video);
     modalTitle.textContent = button.dataset.title;
     modal.showModal();
     modalVideo.muted = false;
@@ -225,6 +293,7 @@ document.querySelectorAll(".video-trigger").forEach((button) =>
 );
 function closeModal() {
   modalVideo.pause();
+  destroyHls(modalVideo);
   modalVideo.removeAttribute("src");
   modalVideo.load();
   modal.close();
