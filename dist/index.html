@@ -9,7 +9,7 @@
       content="创摄萌（萌创次元团队）专注 ACG 漫展影像创作、品牌展台摄影摄像与媒体内容传播。"
     />
     <title>创摄萌 · 让每一份热爱，都被看见</title>
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./styles.css?v=20261029-10" />
   </head>
   <body>
     <a class="skip-link" href="#main">跳到主要内容</a>
@@ -21,6 +21,7 @@
       <button
         class="menu-toggle"
         type="button"
+        aria-label="打开菜单"
         aria-expanded="false"
         aria-controls="site-nav"
       >
@@ -50,7 +51,9 @@
         <div class="hero-shade"></div>
         <div class="noise" aria-hidden="true"></div>
         <div class="hero-content container">
-          <p class="eyebrow">ACG IMAGE &amp; MEDIA STUDIO · GUANGZHOU / SHENZHEN</p>
+          <p class="eyebrow">
+            ACG IMAGE &amp; MEDIA STUDIO · GUANGZHOU / SHENZHEN
+          </p>
           <h1 id="hero-title">让每一份热爱，<br /><em>都被看见。</em></h1>
           <div class="hero-bottom">
             <p>
@@ -171,56 +174,121 @@
       <section class="featured section" id="cases">
         <div class="container">
           <div class="section-kicker reveal"><span>03</span> 精选案例</div>
-          <article class="case-hero reveal">
-            <button
-              class="case-visual video-trigger"
-              type="button"
-              data-video="./assets/media/bw-day2.mp4"
-              data-title="《棕色尘埃2》· BW 2026 展台影像回顾"
-              aria-label="播放棕色尘埃2展台影像"
-            >
-              <img
-                src="./assets/media/bw-day2.jpg"
-                alt="棕色尘埃2 BW 展台现场"
-              />
-              <span class="play"><i>▶</i> 播放现场影像</span>
-              <small>00:31</small>
-            </button>
-            <div class="case-info">
-              <p class="tag">FEATURED CASE · 2026</p>
-              <h2>BW2026<br /><em>《棕色尘埃2》展台</em></h2>
-              <p>
-                围绕游戏展台、活动氛围与玩家互动，记录品牌与观众相遇的热情。用快节奏镜头捕捉现场，也为展后传播留下可持续使用的内容。
-              </p>
-              <dl>
-                <div>
-                  <dt>项目类型</dt>
-                  <dd>品牌展台影像</dd>
-                </div>
-                <div>
-                  <dt>拍摄地点</dt>
-                  <dd>上海 · BilibiliWorld</dd>
-                </div>
-                <div>
-                  <dt>内容交付</dt>
-                  <dd>现场摄制 · 快剪 · 短视频</dd>
-                </div>
-              </dl>
-              <div class="case-links">
-                <a
-                  href="https://www.bilibili.com/video/BV1NyNH6HEup"
-                  target="_blank"
-                  rel="noreferrer"
-                  >观看作品 01 ↗</a
-                ><a
-                  href="https://www.bilibili.com/video/BV1CDNA6YEfn"
-                  target="_blank"
-                  rel="noreferrer"
-                  >观看作品 02 ↗</a
+          <div class="case-carousel reveal" data-case-carousel>
+            <div class="case-track" data-case-track>
+              <article class="case-hero">
+                <button
+                  class="case-visual video-trigger"
+                  type="button"
+                  data-video="./assets/media/bw-day2.mp4"
+                  data-title="《棕色尘埃2》· BW 2026 展台影像回顾"
+                  aria-label="播放棕色尘埃2展台影像"
                 >
-              </div>
+                  <img
+                    src="./assets/media/bw-day2.jpg"
+                    alt="棕色尘埃2 BW 展台现场"
+                  />
+                  <span class="play"><i>▶</i> 播放现场影像</span>
+                  <small>00:31</small>
+                </button>
+                <div class="case-info">
+                  <p class="tag">FEATURED CASE · 2026</p>
+                  <h2>BW2026<br /><em>《棕色尘埃2》展台</em></h2>
+                  <p>
+                    围绕游戏展台、活动氛围与玩家互动，记录品牌与观众相遇的热情。用快节奏镜头捕捉现场，也为展后传播留下可持续使用的内容。
+                  </p>
+                  <dl>
+                    <div>
+                      <dt>项目类型</dt>
+                      <dd>品牌展台影像</dd>
+                    </div>
+                    <div>
+                      <dt>拍摄地点</dt>
+                      <dd>上海 · BilibiliWorld</dd>
+                    </div>
+                    <div>
+                      <dt>内容交付</dt>
+                      <dd>现场摄制 · 快剪 · 短视频</dd>
+                    </div>
+                  </dl>
+                  <div class="case-links">
+                    <a
+                      href="https://www.bilibili.com/video/BV1NyNH6HEup"
+                      target="_blank"
+                      rel="noreferrer"
+                      >观看作品 01 ↗</a
+                    ><a
+                      href="https://www.bilibili.com/video/BV1CDNA6YEfn"
+                      target="_blank"
+                      rel="noreferrer"
+                      >观看作品 02 ↗</a
+                    >
+                  </div>
+                </div>
+              </article>
+              <article class="case-hero">
+                <button
+                  class="case-visual video-trigger"
+                  type="button"
+                  data-video="./assets/media/firefly-bd2.mp4"
+                  data-title="萤火虫漫展《棕色尘埃2》展台"
+                  aria-label="播放萤火虫漫展棕色尘埃2展台影像"
+                >
+                  <img
+                    src="./assets/media/firefly-bd2.jpg"
+                    alt="萤火虫漫展棕色尘埃2展台现场"
+                  />
+                  <span class="play"><i>▶</i> 播放现场影像</span>
+                  <small>00:43</small>
+                </button>
+                <div class="case-info">
+                  <p class="tag">FEATURED CASE · FIREFLY</p>
+                  <h2>萤火虫漫展<br /><em>《棕色尘埃2》展台</em></h2>
+                  <p>
+                    聚焦展台角色呈现、玩家互动与现场氛围，以轻快镜头记录品牌在萤火虫漫展中的高光时刻，并形成适合社交平台持续传播的内容。
+                  </p>
+                  <dl>
+                    <div>
+                      <dt>项目类型</dt>
+                      <dd>品牌展台影像</dd>
+                    </div>
+                    <div>
+                      <dt>拍摄场景</dt>
+                      <dd>萤火虫动漫游戏嘉年华</dd>
+                    </div>
+                    <div>
+                      <dt>内容交付</dt>
+                      <dd>现场摄制 · 活动记录 · 短视频</dd>
+                    </div>
+                  </dl>
+                  <div class="case-links">
+                    <a
+                      href="https://www.bilibili.com/video/BV1tnvDByEyC/?spm_id_from=333.1387.upload.video_card.click&amp;vd_source=cf38467be0cede0cc5f568ac1c1742c5"
+                      target="_blank"
+                      rel="noreferrer"
+                      >前往 B 站观看 ↗</a
+                    >
+                  </div>
+                </div>
+              </article>
             </div>
-          </article>
+            <div class="case-controls" aria-label="精选案例切换">
+              <button type="button" data-case-prev aria-label="上一个案例">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M15 5 8 12l7 7" />
+                </svg>
+              </button>
+              <div class="case-dots" aria-hidden="true">
+                <i class="active"></i><i></i>
+              </div>
+              <span><b data-case-index>01</b> / 02</span>
+              <button type="button" data-case-next aria-label="下一个案例">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="m9 5 7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+          </div>
           <div class="project-line reveal">
             <p>更多真实项目</p>
             <div class="project-years">
@@ -316,90 +384,249 @@
       <section class="works section" id="works">
         <div class="container">
           <div class="section-heading works-heading reveal">
-            <div class="section-kicker"><span>05</span> 现场影像</div>
-            <h2>用影像，<br />还原每一次精彩相遇。</h2>
-            <p>真实现场，是我们最好的作品集。</p>
+            <div class="section-kicker">
+              <span>05</span> 团队成员 + 作品展示
+            </div>
+            <h2>每位创作者，<br />都有自己的代表作。</h2>
           </div>
-          <div class="work-grid">
+          <div class="work-grid creator-work-grid">
+            <h3 class="creator-divider reveal">
+              <span>创摄萌</span>
+            </h3>
             <button
               class="work-card video-trigger work-wide reveal"
               type="button"
-              data-video="./assets/media/shenzhen-gamefest.mp4"
-              data-title="2023 深圳国际电玩节"
+              data-video="./assets/team-work/chuangshemoe.mp4"
+              data-title="创摄萌 · CICF 次元专访"
             >
               <img
-                src="./assets/media/shenzhen-gamefest.jpg"
-                alt="深圳国际电玩节现场"
+                src="./assets/team-work/chuangshemoe.jpg"
+                alt="创摄萌 CICF 次元专访作品"
               /><span
-                ><b>2023 深圳国际电玩节</b
-                ><small>官方项目影像 · 有声播放 ↗</small></span
+                ><b>CICF 次元专访</b><small>有声播放 ↗</small></span
               >
             </button>
             <button
               class="work-card video-trigger reveal"
               type="button"
-              data-video="./assets/media/manhua-festival.mp4"
-              data-title="第二届深圳漫画节"
+              data-video="./assets/team-work/csm-top5.mp4"
+              data-title="创摄萌 · 国内大型漫展 TOP5"
             >
               <img
-                src="./assets/media/manhua-festival.jpg"
-                alt="第二届深圳漫画节现场"
+                src="./assets/team-work/csm-top5.jpg"
+                alt="国内大型漫展 TOP5 作品"
               /><span
-                ><b>第二届深圳漫画节</b
-                ><small>官方项目影像 · 有声播放 ↗</small></span
+                ><b>国内大型漫展 TOP5</b><small>有声播放 ↗</small></span
               >
             </button>
             <button
               class="work-card video-trigger reveal"
               type="button"
-              data-video="./assets/media/dongwan.mp4"
-              data-title="深圳动玩嘉年华"
+              data-video="./assets/team-work/csm-haikou.mp4"
+              data-title="创摄萌 · 海风来信"
             >
               <img
-                src="./assets/media/dongwan.jpg"
-                alt="深圳动玩嘉年华现场"
+                src="./assets/team-work/csm-haikou.jpg"
+                alt="海风来信海口纸梦相逢作品"
               /><span
-                ><b>深圳动玩嘉年华</b
-                ><small>现场活动影像 · 有声播放 ↗</small></span
+                ><b>海风来信 · 海口纸梦相逢</b><small>有声播放 ↗</small></span
               >
             </button>
             <button
               class="work-card video-trigger reveal"
               type="button"
-              data-video="./assets/media/sanguosha.mp4"
-              data-title="广州三国杀界王赛"
+              data-video="./assets/team-work/csm-firefly.mp4"
+              data-title="创摄萌 · 萤火虫联合专访"
             >
               <img
-                src="./assets/media/sanguosha.jpg"
-                alt="广州三国杀界王赛现场"
+                src="./assets/team-work/csm-firefly.jpg"
+                alt="萤火虫与 CSM 联合专访作品"
               /><span
-                ><b>广州三国杀界王赛</b
-                ><small>赛事活动影像 · 有声播放 ↗</small></span
+                ><b>萤火虫 × CSM 联合专访</b><small>有声播放 ↗</small></span
               >
             </button>
-            <article class="work-card work-link reveal">
+
+            <h3 class="creator-divider reveal">
+              <span>戏天（可愛い）</span>
+            </h3>
+            <button
+              class="work-card video-trigger reveal"
+              type="button"
+              data-video="./assets/team-work/xitian.mp4"
+              data-title="戏天（可愛い）· 师尊看看我"
+            >
               <img
-                src="./assets/media/firefly-bd2.jpg"
-                alt="萤火虫漫展棕色尘埃2展台现场"
+                src="./assets/team-work/xitian.jpg"
+                alt="戏天师尊看看我作品"
               /><span
-                ><b>萤火虫漫展《棕色尘埃2》</b
-                ><small
-                  ><button
-                    class="inline-play video-trigger"
-                    type="button"
-                    data-video="./assets/media/firefly-bd2.mp4"
-                    data-title="萤火虫漫展《棕色尘埃2》展台"
-                  >
-                    站内播放 ▶</button
-                  ><a
-                    href="https://www.bilibili.com/video/BV1tnvDByEyC/?spm_id_from=333.1387.upload.video_card.click&amp;vd_source=cf38467be0cede0cc5f568ac1c1742c5"
-                    target="_blank"
-                    rel="noreferrer"
-                    >B站观看 ↗</a
-                  ></small
-                ></span
+                ><b>《师尊看看我》</b><small>有声播放 ↗</small></span
               >
-            </article>
+            </button>
+            <button
+              class="work-card video-trigger reveal"
+              type="button"
+              data-video="./assets/team-work/xitian-hulai.mp4"
+              data-title="戏天（可愛い）· 狐来"
+            >
+              <img
+                src="./assets/team-work/xitian-hulai.jpg"
+                alt="戏天狐来作品"
+              /><span
+                ><b>《狐来》</b><small>有声播放 ↗</small></span
+              >
+            </button>
+            <button
+              class="work-card video-trigger reveal"
+              type="button"
+              data-video="./assets/team-work/xitian-shizun.mp4"
+              data-title="戏天（可愛い）· 师尊师尊这是干什么呀"
+            >
+              <img
+                src="./assets/team-work/xitian-shizun.jpg"
+                alt="戏天师尊作品"
+              /><span
+                ><b>《师尊师尊这是干什么呀》</b
+                ><small>有声播放 ↗</small></span
+              >
+            </button>
+
+            <h3 class="creator-divider reveal">
+              <span>小朱霍克酱</span>
+            </h3>
+            <button
+              class="work-card video-trigger reveal"
+              type="button"
+              data-video="./assets/team-work/xiaozhu.mp4"
+              data-title="小朱霍克酱 · 真云缨一镜到底"
+            >
+              <img
+                src="./assets/team-work/xiaozhu.jpg"
+                alt="小朱霍克酱真云缨作品"
+              /><span
+                ><b>真云缨一镜到底</b><small>有声播放 ↗</small></span
+              >
+            </button>
+            <button
+              class="work-card video-trigger reveal"
+              type="button"
+              data-video="./assets/team-work/xiaozhu-tenmin.mp4"
+              data-title="小朱霍克酱 · 10分钟能出片吗"
+            >
+              <img
+                src="./assets/team-work/xiaozhu-tenmin.jpg"
+                alt="小朱霍克酱十分钟出片作品"
+              /><span
+                ><b>10分钟能出片吗</b><small>有声播放 ↗</small></span
+              >
+            </button>
+            <button
+              class="work-card video-trigger reveal"
+              type="button"
+              data-video="./assets/team-work/xiaozhu-leiting.mp4"
+              data-title="小朱霍克酱 · 雷霆运镜"
+            >
+              <img
+                src="./assets/team-work/xiaozhu-leiting.jpg"
+                alt="小朱霍克酱雷霆运镜作品"
+              /><span><b>雷霆运镜</b><small>有声播放 ↗</small></span>
+            </button>
+
+            <h3 class="creator-divider reveal">
+              <span>Tintin不想剪视频</span>
+            </h3>
+            <button
+              class="work-card video-trigger reveal"
+              type="button"
+              data-video="./assets/team-work/tintin.mp4"
+              data-title="Tintin不想剪视频 · 跳跃不是罪过"
+            >
+              <img
+                src="./assets/team-work/tintin.jpg"
+                alt="Tintin跳跃不是罪过作品"
+              /><span
+                ><b>《跳跃不是罪过》</b><small>有声播放 ↗</small></span
+              >
+            </button>
+            <button
+              class="work-card video-trigger reveal"
+              type="button"
+              data-video="./assets/team-work/tintin-yinglili.mp4"
+              data-title="Tintin不想剪视频 · 英梨梨"
+            >
+              <img
+                src="./assets/team-work/tintin-yinglili.jpg"
+                alt="Tintin 英梨梨作品"
+              /><span
+                ><b>英梨梨</b><small>有声播放 ↗</small></span
+              >
+            </button>
+            <button
+              class="work-card video-trigger reveal"
+              type="button"
+              data-video="./assets/team-work/tintin-wangguiren.mp4"
+              data-title="Tintin不想剪视频 · 忘归人"
+            >
+              <img
+                src="./assets/team-work/tintin-wangguiren.jpg"
+                alt="Tintin 忘归人作品"
+              /><span
+                ><b>忘归人</b><small>有声播放 ↗</small></span
+              >
+            </button>
+            <button
+              class="work-card video-trigger reveal"
+              type="button"
+              data-video="./assets/team-work/tintin-aogusita.mp4"
+              data-title="Tintin不想剪视频 · 奥古斯塔"
+            >
+              <img
+                src="./assets/team-work/tintin-aogusita.jpg"
+                alt="Tintin 奥古斯塔作品"
+              /><span
+                ><b>奥古斯塔</b><small>有声播放 ↗</small></span
+              >
+            </button>
+
+            <h3 class="creator-divider reveal">
+              <span>绝序绝绝子</span>
+            </h3>
+            <button
+              class="work-card video-trigger reveal"
+              type="button"
+              data-video="./assets/team-work/juexu.mp4"
+              data-title="绝序绝绝子 · 奥古斯塔"
+            >
+              <img
+                src="./assets/team-work/juexu.jpg"
+                alt="绝序绝绝子奥古斯塔作品"
+              /><span><b>奥古斯塔</b><small>有声播放 ↗</small></span>
+            </button>
+            <button
+              class="work-card video-trigger reveal"
+              type="button"
+              data-video="./assets/team-work/juexu-rongyao.mp4"
+              data-title="绝序绝绝子 · 不要丢了荣耀"
+            >
+              <img
+                src="./assets/team-work/juexu-rongyao.jpg"
+                alt="绝序绝绝子不要丢了荣耀作品"
+              /><span
+                ><b>不要丢了荣耀</b><small>有声播放 ↗</small></span
+              >
+            </button>
+            <button
+              class="work-card video-trigger reveal"
+              type="button"
+              data-video="./assets/team-work/juexu-zhigengniao.mp4"
+              data-title="绝序绝绝子 · 我们还会再见吗"
+            >
+              <img
+                src="./assets/team-work/juexu-zhigengniao.jpg"
+                alt="绝序绝绝子知更鸟作品"
+              /><span
+                ><b>我们还会再见吗</b><small>有声播放 ↗</small></span
+              >
+            </button>
           </div>
         </div>
       </section>
@@ -407,86 +634,211 @@
       <section class="team section" id="team">
         <div class="container">
           <div class="team-intro reveal">
-            <div class="section-kicker">
-              <span>06</span> 团队成员 + 作品展示
-            </div>
-            <h2>每位创作者，<br /><i>都有自己的镜头语言。</i></h2>
+            <div class="section-kicker"><span>06</span> 创作团队</div>
+            <h2>不同的视角，<br /><i>同一份热爱。</i></h2>
             <p>
-              从摄影、剪辑到内容表达，成员账号与作品共同构成创摄萌的创作矩阵。
+              从摄影、剪辑到内容表达，成员账号共同构成创摄萌的全网创作矩阵。
             </p>
           </div>
           <div class="team-stats reveal" aria-label="团队数据">
-            <div><strong>29.6万+</strong><span>抖音账号矩阵粉丝合计</span></div>
+            <div><strong>29.6万+</strong><span>已录入抖音粉丝合计</span></div>
             <div><strong>8</strong><span>位创作成员</span></div>
-            <div><strong>2019～2026</strong><span>持续创作与合作</span></div>
+            <div><strong>3</strong><span>平台粉丝矩阵</span></div>
           </div>
+          <p class="platform-note reveal">
+            粉丝统计平台：抖音 / 小红书 / 哔哩哔哩；当前合计仅统计已录入的抖音数据。
+          </p>
           <div class="team-grid">
             <article class="member reveal">
-              <img src="./assets/team/创摄萌.webp" alt="创摄萌作品展示" />
-              <div>
-                <b>创摄萌</b><span>抖音号 csm54602</span
-                ><small>1.3万粉丝 · 团队主账号</small>
-              </div>
-            </article>
-            <article class="member reveal">
-              <img src="./assets/team/戏天（可愛い）.webp" alt="戏天作品展示" />
-              <div>
-                <b>戏天（可愛い）</b><span>抖音号 1169856474</span
-                ><small>1.9万粉丝 · 影像创作</small>
+              <img
+                class="member-cover"
+                src="./assets/team/创摄萌.webp"
+                alt="创摄萌头像"
+              />
+              <div class="member-copy">
+                <b>创摄萌</b><span>抖音号 csm54602</span>
+                <dl class="platform-stats">
+                  <div>
+                    <dt>抖音</dt>
+                    <dd>1.3万</dd>
+                  </div>
+                  <div>
+                    <dt>小红书</dt>
+                    <dd>待补充</dd>
+                  </div>
+                  <div>
+                    <dt>哔哩哔哩</dt>
+                    <dd>待补充</dd>
+                  </div>
+                </dl>
               </div>
             </article>
             <article class="member reveal">
               <img
+                class="member-cover"
+                src="./assets/team/戏天（可愛い）.webp"
+                alt="戏天头像"
+              />
+              <div class="member-copy">
+                <b>戏天（可愛い）</b><span>抖音号 1169856474</span>
+                <dl class="platform-stats">
+                  <div>
+                    <dt>抖音</dt>
+                    <dd>1.9万</dd>
+                  </div>
+                  <div>
+                    <dt>小红书</dt>
+                    <dd>待补充</dd>
+                  </div>
+                  <div>
+                    <dt>哔哩哔哩</dt>
+                    <dd>待补充</dd>
+                  </div>
+                </dl>
+              </div>
+            </article>
+            <article class="member reveal">
+              <img
+                class="member-cover"
                 src="./assets/team/小朱霍克酱.webp"
-                alt="小朱霍克酱作品展示"
+                alt="小朱霍克酱头像"
               />
-              <div>
-                <b>小朱霍克酱</b><span>抖音号 xiaozhuhuoke</span
-                ><small>15.8万粉丝 · 内容创作</small>
+              <div class="member-copy">
+                <b>小朱霍克酱</b><span>抖音号 xiaozhuhuoke</span>
+                <dl class="platform-stats">
+                  <div>
+                    <dt>抖音</dt>
+                    <dd>15.8万</dd>
+                  </div>
+                  <div>
+                    <dt>小红书</dt>
+                    <dd>待补充</dd>
+                  </div>
+                  <div>
+                    <dt>哔哩哔哩</dt>
+                    <dd>待补充</dd>
+                  </div>
+                </dl>
               </div>
             </article>
             <article class="member reveal">
               <img
+                class="member-cover"
                 src="./assets/team/Tintin不想剪视频.webp"
-                alt="Tintin作品展示"
+                alt="Tintin头像"
               />
-              <div>
-                <b>Tintin不想剪视频</b><span>抖音号 Tintin_Diary</span
-                ><small>4.5万粉丝 · 视频创作</small>
+              <div class="member-copy">
+                <b>Tintin不想剪视频</b><span>抖音号 Tintin_Diary</span>
+                <dl class="platform-stats">
+                  <div>
+                    <dt>抖音</dt>
+                    <dd>4.5万</dd>
+                  </div>
+                  <div>
+                    <dt>小红书</dt>
+                    <dd>待补充</dd>
+                  </div>
+                  <div>
+                    <dt>哔哩哔哩</dt>
+                    <dd>待补充</dd>
+                  </div>
+                </dl>
               </div>
             </article>
             <article class="member reveal">
               <img
+                class="member-cover"
                 src="./assets/team/文文没烦恼.webp"
-                alt="文文没烦恼作品展示"
+                alt="文文没烦恼头像"
               />
-              <div>
-                <b>文文没烦恼</b><span>抖音号 harryllk</span
-                ><small>2.8万粉丝 · 内容创作</small>
+              <div class="member-copy">
+                <b>文文没烦恼</b><span>抖音号 harryllk</span>
+                <dl class="platform-stats">
+                  <div>
+                    <dt>抖音</dt>
+                    <dd>2.8万</dd>
+                  </div>
+                  <div>
+                    <dt>小红书</dt>
+                    <dd>待补充</dd>
+                  </div>
+                  <div>
+                    <dt>哔哩哔哩</dt>
+                    <dd>待补充</dd>
+                  </div>
+                </dl>
               </div>
             </article>
             <article class="member reveal">
               <img
+                class="member-cover"
                 src="./assets/team/绝序绝绝子.webp"
-                alt="绝序绝绝子作品展示"
+                alt="绝序绝绝子头像"
               />
-              <div>
-                <b>绝序绝绝子</b><span>抖音号 juexu</span
-                ><small>1.3万粉丝 · 内容创作</small>
+              <div class="member-copy">
+                <b>绝序绝绝子</b><span>抖音号 juexu</span>
+                <dl class="platform-stats">
+                  <div>
+                    <dt>抖音</dt>
+                    <dd>1.3万</dd>
+                  </div>
+                  <div>
+                    <dt>小红书</dt>
+                    <dd>待补充</dd>
+                  </div>
+                  <div>
+                    <dt>哔哩哔哩</dt>
+                    <dd>待补充</dd>
+                  </div>
+                </dl>
               </div>
             </article>
             <article class="member reveal">
-              <img src="./assets/team/北月天.webp" alt="北月天作品展示" />
-              <div>
-                <b>北月天</b><span>抖音号 69161312931</span
-                ><small>1.1万粉丝 · 创作伙伴</small>
+              <img
+                class="member-cover"
+                src="./assets/team/北月天.webp"
+                alt="北月天头像"
+              />
+              <div class="member-copy">
+                <b>北月天</b><span>抖音号 69161312931</span>
+                <dl class="platform-stats">
+                  <div>
+                    <dt>抖音</dt>
+                    <dd>1.1万</dd>
+                  </div>
+                  <div>
+                    <dt>小红书</dt>
+                    <dd>待补充</dd>
+                  </div>
+                  <div>
+                    <dt>哔哩哔哩</dt>
+                    <dd>待补充</dd>
+                  </div>
+                </dl>
               </div>
             </article>
             <article class="member reveal">
-              <img src="./assets/team/是薄荷吖.webp" alt="是薄荷吖作品展示" />
-              <div>
-                <b>是薄荷吖</b><span>抖音号 baohe94725</span
-                ><small>9130粉丝 · 创作伙伴</small>
+              <img
+                class="member-cover"
+                src="./assets/team/是薄荷吖.webp"
+                alt="是薄荷吖头像"
+              />
+              <div class="member-copy">
+                <b>是薄荷吖</b><span>抖音号 baohe94725</span>
+                <dl class="platform-stats">
+                  <div>
+                    <dt>抖音</dt>
+                    <dd>9130</dd>
+                  </div>
+                  <div>
+                    <dt>小红书</dt>
+                    <dd>待补充</dd>
+                  </div>
+                  <div>
+                    <dt>哔哩哔哩</dt>
+                    <dd>待补充</dd>
+                  </div>
+                </dl>
               </div>
             </article>
           </div>
@@ -500,8 +852,12 @@
           <h2>下一场精彩，<br /><em>一起创造。</em></h2>
           <p>漫展媒体合作 / 品牌展台拍摄 / 官方活动摄影摄像 / 视频制作与传播</p>
           <div class="contact-actions">
-            <button class="button button-light" type="button" data-copy-handle>
-              复制微信号 <span>CSM54602</span>
+            <button
+              class="button button-light"
+              type="button"
+              data-copy-contact="CSM54602"
+            >
+              复制微信号
             </button>
             <a class="button button-outline-light" href="#works">先看看作品</a>
           </div>
@@ -520,16 +876,20 @@
       </div>
     </footer>
 
-    <dialog class="video-modal" data-video-modal>
+    <dialog
+      class="video-modal"
+      data-video-modal
+      aria-labelledby="video-modal-title"
+    >
       <div class="modal-bar">
-        <p data-modal-title>现场影像</p>
+        <p id="video-modal-title" data-modal-title>现场影像</p>
         <button type="button" data-modal-close aria-label="关闭视频">×</button>
       </div>
       <video controls playsinline preload="metadata" data-modal-video></video>
     </dialog>
     <div class="toast" role="status" aria-live="polite" data-toast>
-      已复制微信号 CSM54602
+      已复制微信号
     </div>
-    <script src="./script.js"></script>
+    <script src="./script.js?v=20261029-9"></script>
   </body>
 </html>
