@@ -88,8 +88,6 @@ caseTrack.addEventListener(
 updateCaseUi(0);
 
 const creatorGrid = document.querySelector(".creator-work-grid");
-const creatorItems = [...creatorGrid.children];
-const creatorFragment = document.createDocumentFragment();
 const creatorAvatars = {
   创摄萌: "./assets/team/创摄萌.webp",
   "戏天（可愛い）": "./assets/team/戏天（可愛い）.webp",
@@ -97,73 +95,121 @@ const creatorAvatars = {
   Tintin不想剪视频: "./assets/team/Tintin不想剪视频.webp",
   绝序绝绝子: "./assets/team/绝序绝绝子.webp",
 };
-let creatorTrack;
+const creatorWorks = [
+  {
+    name: "创摄萌",
+    prefix: "csm",
+    titles: [
+      "CICF · CosplayMax 嘉宾公布",
+      "萤火虫 39th · PSD Cosplay 年度盛典",
+      "CPG08 · 14 个专区信号接入",
+      "国内大型漫展规模 TOP5",
+      "萤火虫 EX 次元派对",
+      "王者荣耀 2026 周年庆嘉年华",
+    ],
+  },
+  {
+    name: "戏天（可愛い）",
+    prefix: "xitian",
+    titles: ["付慧琳 · 王者荣耀 2026 周年庆", "指挥官配兰博", "甜妹暴击", "萌妹怎么选"],
+  },
+  {
+    name: "小朱霍克酱",
+    prefix: "xiaozhu",
+    titles: [
+      "BW 漫展 · 10 分钟拍守岸人花嫁",
+      "来当漂泊者吧",
+      "摄影拍腿的实际成片",
+      "漫展 10 分钟能出片吗",
+    ],
+  },
+  {
+    name: "Tintin不想剪视频",
+    prefix: "tintin",
+    titles: ["大黑塔", "海琴烟 · 鬼刀冰公主", "请选择你的小麋鹿", "英梨梨", "铃兰生气也这么可爱"],
+  },
+  {
+    name: "绝序绝绝子",
+    prefix: "juexu",
+    titles: ["绝区零 · UID 老玩家", "不要丢了荣耀", "2024 赛车初音", "绿梦时空之声 · BW2026"],
+  },
+];
 
-creatorItems.forEach((item) => {
-  if (item.matches(".creator-divider")) {
-    const showcase = document.createElement("section");
-    const bar = document.createElement("div");
-    const identity = document.createElement("div");
-    const avatar = document.createElement("img");
-    const controls = document.createElement("div");
-    const previous = document.createElement("button");
-    const next = document.createElement("button");
+creatorGrid.replaceChildren();
+creatorWorks.forEach(({ name, prefix, titles }) => {
+  const showcase = document.createElement("section");
+  const bar = document.createElement("div");
+  const identity = document.createElement("div");
+  const avatar = document.createElement("img");
+  const heading = document.createElement("h3");
+  const controls = document.createElement("div");
+  const previous = document.createElement("button");
+  const next = document.createElement("button");
+  const track = document.createElement("div");
 
-    showcase.className = "creator-showcase";
-    bar.className = "creator-bar";
-    identity.className = "creator-identity";
-    controls.className = "creator-controls";
-    const track = document.createElement("div");
-    creatorTrack = track;
-    track.className = "creator-track";
-    track.setAttribute("aria-label", `${item.innerText}作品列表`);
+  showcase.className = "creator-showcase reveal";
+  bar.className = "creator-bar";
+  identity.className = "creator-identity";
+  controls.className = "creator-controls";
+  track.className = "creator-track";
+  track.setAttribute("aria-label", `${name}作品列表`);
+  avatar.className = "creator-avatar";
+  avatar.src = creatorAvatars[name];
+  avatar.alt = `${name}头像`;
+  heading.className = "creator-divider";
+  heading.innerHTML = `<span>${name}</span>`;
 
-    const creatorName = item.querySelector("span").textContent.trim();
-    avatar.className = "creator-avatar";
-    avatar.src = creatorAvatars[creatorName];
-    avatar.alt = `${creatorName}头像`;
+  previous.type = "button";
+  previous.className = "creator-arrow";
+  previous.setAttribute("aria-label", "上一项作品");
+  previous.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5 8 12l7 7" /></svg>';
+  next.type = "button";
+  next.className = "creator-arrow";
+  next.setAttribute("aria-label", "下一项作品");
+  next.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7" /></svg>';
 
-    previous.type = "button";
-    previous.className = "creator-arrow";
-    previous.setAttribute("aria-label", "上一项作品");
-    previous.innerHTML =
-      '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5 8 12l7 7" /></svg>';
-    next.type = "button";
-    next.className = "creator-arrow";
-    next.setAttribute("aria-label", "下一项作品");
-    next.innerHTML =
-      '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7" /></svg>';
+  titles.forEach((title, index) => {
+    const number = String(index + 1).padStart(2, "0");
+    const card = document.createElement("button");
+    const image = document.createElement("img");
+    const caption = document.createElement("span");
+    const label = document.createElement("b");
+    const meta = document.createElement("small");
+    card.type = "button";
+    card.className = "work-card video-trigger";
+    card.dataset.video = `./assets/team-work-2026/${prefix}-${number}.mp4`;
+    card.dataset.title = `${name} · ${title}`;
+    image.src = `./assets/team-work-2026/${prefix}-${number}.webp`;
+    image.alt = `${title}作品封面`;
+    label.textContent = title;
+    meta.textContent = "有声播放 ↗";
+    caption.append(label, meta);
+    card.append(image, caption);
+    track.append(card);
+  });
 
-    const updateWorkControls = () => {
-      const maxScroll = Math.max(0, track.scrollWidth - track.clientWidth);
-      previous.disabled = track.scrollLeft <= 2;
-      next.disabled = track.scrollLeft >= maxScroll - 2;
-    };
+  const updateWorkControls = () => {
+    const maxScroll = Math.max(0, track.scrollWidth - track.clientWidth);
+    previous.disabled = track.scrollLeft <= 2;
+    next.disabled = track.scrollLeft >= maxScroll - 2;
+  };
+  const scrollWorks = (direction) => {
+    const card = track.querySelector(".work-card");
+    if (!card) return;
+    track.scrollBy({ left: direction * (card.getBoundingClientRect().width + 16), behavior: "smooth" });
+  };
+  previous.addEventListener("click", () => scrollWorks(-1));
+  next.addEventListener("click", () => scrollWorks(1));
+  track.addEventListener("scroll", updateWorkControls, { passive: true });
+  addEventListener("resize", updateWorkControls, { passive: true });
 
-    const scrollWorks = (direction) => {
-      const card = track.querySelector(".work-card");
-      if (!card) return;
-      track.scrollBy({
-        left: direction * (card.getBoundingClientRect().width + 16),
-        behavior: "smooth",
-      });
-    };
-    previous.addEventListener("click", () => scrollWorks(-1));
-    next.addEventListener("click", () => scrollWorks(1));
-    track.addEventListener("scroll", updateWorkControls, { passive: true });
-    addEventListener("resize", updateWorkControls, { passive: true });
-
-    controls.append(previous, next);
-    identity.append(avatar, item);
-    bar.append(identity, controls);
-    showcase.append(bar, track);
-    creatorFragment.append(showcase);
-    requestAnimationFrame(updateWorkControls);
-  } else if (creatorTrack) {
-    creatorTrack.append(item);
-  }
+  controls.append(previous, next);
+  identity.append(avatar, heading);
+  bar.append(identity, controls);
+  showcase.append(bar, track);
+  creatorGrid.append(showcase);
+  requestAnimationFrame(updateWorkControls);
 });
-creatorGrid.append(creatorFragment);
 
 let lastVideoTrigger = null;
 document.querySelectorAll(".video-trigger").forEach((button) =>
@@ -205,9 +251,46 @@ const memberContacts = {
   北月天: "MH13610526149",
   是薄荷吖: "bohesansan33",
 };
+const douyinProfiles = {
+  创摄萌: "https://www.douyin.com/user/MS4wLjABAAAApZLcAtd-XphiHCB3YQvJ3El3f50B2D62Hm5ZDevDn7g?from_tab_name=main",
+  绝序绝绝子: "https://www.douyin.com/user/MS4wLjABAAAABrvVMQxJqUZLXe8TdosFelhm6GKfyml9xAPcrB5HHJq0dUbpnzqSgkm_M6gGpfTq?from_tab_name=main",
+  小朱霍克酱: "https://www.douyin.com/user/MS4wLjABAAAARtZlZRzRHxSe2JwuKxqPFM1TPzKnvOeQJXyIA5QWY9w?from_tab_name=main",
+  Tintin不想剪视频: "https://www.douyin.com/user/MS4wLjABAAAAR5BD9a5SqdWuS_9KeRpC7D0s1kr0fLjDaSIFttHxBh7FTiVILmMtVH6ovCvhOOFB?from_tab_name=main",
+  "戏天（可愛い）": "https://www.douyin.com/user/MS4wLjABAAAAT8x_tsuYvbN9KsGTYmHGB0oSfWvGdfTZTP1SlFsjanA?from_tab_name=main",
+  文文没烦恼: "https://www.douyin.com/user/MS4wLjABAAAAjeAbMeCP3E8BKUDNRDai6_HFSg02nhCxSVkccRU5x9s?from_tab_name=main",
+  北月天: "https://www.douyin.com/user/MS4wLjABAAAAmmPkDtZEzUYHt6CmwBGsDm-fyFEc42x245A-V2BMe9H9UEf_EYu8ewi9WSVRZEl5?from_tab_name=main",
+  是薄荷吖: "https://www.douyin.com/user/MS4wLjABAAAAfFtEsSAlWt-TcnDmkgudkNBIK0ilQVHmaiOEacIjF_c?from_tab_name=main",
+};
+const additionalPlatformStats = {
+  小朱霍克酱: { "小红书": "6.2万", "哔哩哔哩": "6.8万" },
+  Tintin不想剪视频: { "小红书": "1.2万", "哔哩哔哩": "2.3万" },
+  绝序绝绝子: { "小红书": "1.5万", "哔哩哔哩": "1.2万" },
+};
 
 document.querySelectorAll(".team-grid .member").forEach((member) => {
   const name = member.querySelector(".member-copy > b").textContent.trim();
+  const accountLine = member.querySelector(".member-copy > span");
+  const profileLink = document.createElement("a");
+  const profileIcon = document.createElement("img");
+  profileLink.className = "douyin-profile";
+  profileLink.href = douyinProfiles[name];
+  profileLink.target = "_blank";
+  profileLink.rel = "noreferrer";
+  profileLink.setAttribute("aria-label", `打开${name}的抖音主页`);
+  profileIcon.src = "./assets/logos/douyin.svg";
+  profileIcon.alt = "";
+  profileLink.append(profileIcon);
+  accountLine.append(profileLink);
+
+  const platformStats = member.querySelector(".platform-stats");
+  const extraStats = additionalPlatformStats[name];
+  [...platformStats.children].forEach((item, index) => {
+    const platform = item.querySelector("dt").textContent.trim();
+    if (extraStats?.[platform]) item.querySelector("dd").textContent = extraStats[platform];
+    if (!extraStats && index > 0) item.remove();
+  });
+  if (!extraStats) platformStats.classList.add("platform-stats-single");
+
   const button = document.createElement("button");
   button.type = "button";
   button.className = "member-contact";

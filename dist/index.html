@@ -9,7 +9,7 @@
       content="创摄萌（萌创次元团队）专注 ACG 漫展影像创作、品牌展台摄影摄像与媒体内容传播。"
     />
     <title>创摄萌 · 让每一份热爱，都被看见</title>
-    <link rel="stylesheet" href="./styles.css?v=20261029-10" />
+    <link rel="stylesheet" href="./styles.css?v=20261029-11" />
   </head>
   <body>
     <a class="skip-link" href="#main">跳到主要内容</a>
@@ -82,7 +82,7 @@
       </section>
 
       <section class="partner-strip" aria-label="合作展会">
-        <p>长期合作与现场经验</p>
+        <p>各大型漫展合作媒体</p>
         <div class="partner-logos">
           <img src="./assets/logos/萤火虫.webp" alt="萤火虫动漫游戏嘉年华" />
           <img
@@ -110,7 +110,7 @@
             </p>
             <div class="stat-row">
               <div>
-                <strong>2019～2026</strong><span>持续深耕漫展现场</span>
+                <strong>2019～2026</strong><span>持续深耕漫展现场多年</span>
               </div>
               <div><strong>7+</strong><span>内容创作方向</span></div>
               <div><strong>全周期</strong><span>展前 · 展中 · 展后</span></div>
@@ -123,7 +123,7 @@
         <div class="container">
           <div class="section-heading reveal">
             <div class="section-kicker"><span>02</span> 我们的服务</div>
-            <h2>从一次活动，<br />到一套值得传播的内容。</h2>
+            <h2>从一次活动，<br /><span class="service-heading-line">到一套值得传播的内容。</span></h2>
             <p>根据合作节奏灵活组合，不用套模板，也不止交付几段素材。</p>
           </div>
           <div class="service-list">
@@ -167,6 +167,14 @@
               </p>
               <span>LIVE PHOTO</span>
             </article>
+            <article class="service-item reveal">
+              <b>06</b>
+              <h3>Coser 孵化</h3>
+              <p>
+                围绕个人定位、形象包装、内容策划与账号运营，帮助 Coser 建立鲜明风格并持续产出可传播作品。
+              </p>
+              <span>COSER INCUBATION</span>
+            </article>
           </div>
         </div>
       </section>
@@ -177,20 +185,19 @@
           <div class="case-carousel reveal" data-case-carousel>
             <div class="case-track" data-case-track>
               <article class="case-hero">
-                <button
-                  class="case-visual video-trigger"
-                  type="button"
-                  data-video="./assets/media/bw-day2.mp4"
-                  data-title="《棕色尘埃2》· BW 2026 展台影像回顾"
-                  aria-label="播放棕色尘埃2展台影像"
-                >
-                  <img
-                    src="./assets/media/bw-day2.jpg"
-                    alt="棕色尘埃2 BW 展台现场"
-                  />
-                  <span class="play"><i>▶</i> 播放现场影像</span>
-                  <small>00:31</small>
-                </button>
+                <div class="case-visual">
+                  <video
+                    controls
+                    muted
+                    playsinline
+                    preload="metadata"
+                    poster="./assets/media/bw-day2.jpg"
+                    aria-label="BW2026《棕色尘埃2》展台影像"
+                  >
+                    <source src="./assets/media/bw-day2.mp4" type="video/mp4" />
+                  </video>
+                  <span class="inline-video-note">点击播放 · 声音默认关闭</span>
+                </div>
                 <div class="case-info">
                   <p class="tag">FEATURED CASE · 2026</p>
                   <h2>BW2026<br /><em>《棕色尘埃2》展台</em></h2>
@@ -227,20 +234,19 @@
                 </div>
               </article>
               <article class="case-hero">
-                <button
-                  class="case-visual video-trigger"
-                  type="button"
-                  data-video="./assets/media/firefly-bd2.mp4"
-                  data-title="萤火虫漫展《棕色尘埃2》展台"
-                  aria-label="播放萤火虫漫展棕色尘埃2展台影像"
-                >
-                  <img
-                    src="./assets/media/firefly-bd2.jpg"
-                    alt="萤火虫漫展棕色尘埃2展台现场"
-                  />
-                  <span class="play"><i>▶</i> 播放现场影像</span>
-                  <small>00:43</small>
-                </button>
+                <div class="case-visual">
+                  <video
+                    controls
+                    muted
+                    playsinline
+                    preload="metadata"
+                    poster="./assets/media/firefly-bd2.jpg"
+                    aria-label="萤火虫漫展《棕色尘埃2》展台影像"
+                  >
+                    <source src="./assets/media/firefly-bd2.mp4" type="video/mp4" />
+                  </video>
+                  <span class="inline-video-note">点击播放 · 声音默认关闭</span>
+                </div>
                 <div class="case-info">
                   <p class="tag">FEATURED CASE · FIREFLY</p>
                   <h2>萤火虫漫展<br /><em>《棕色尘埃2》展台</em></h2>
@@ -352,25 +358,37 @@
             </div>
           </div>
           <ol class="experience-list">
-            <li class="reveal">
-              <span>2019—2026</span>
-              <h3>萤火虫动漫游戏嘉年华</h3>
-              <p>合作媒体 · 宣发与现场影像报道</p>
+            <li class="reveal experience-brand">
+              <img src="./assets/logos/萤火虫.webp" alt="" />
+              <div>
+                <span>2019—2026</span>
+                <h3>萤火虫动漫游戏嘉年华</h3>
+                <p>合作媒体 · 宣发与现场影像报道</p>
+              </div>
             </li>
-            <li class="reveal">
-              <span>2019—2026</span>
-              <h3>CICF 中国国际漫画节动漫游戏展</h3>
-              <p>合作媒体 · 活动传播与内容制作</p>
+            <li class="reveal experience-brand">
+              <img src="./assets/logos/CICF.webp" alt="" />
+              <div>
+                <span>2019—2026</span>
+                <h3>CICF 中国国际漫画节动漫游戏展</h3>
+                <p>合作媒体 · 活动传播与内容制作</p>
+              </div>
             </li>
-            <li class="reveal">
-              <span>2021—2025</span>
-              <h3>深圳国际电玩节</h3>
-              <p>合作媒体 · 宣传与现场拍摄</p>
+            <li class="reveal experience-brand">
+              <img src="./assets/logos/深圳国际电玩节.webp" alt="" />
+              <div>
+                <span>2021—2025</span>
+                <h3>深圳国际电玩节</h3>
+                <p>合作媒体 · 宣传与现场拍摄</p>
+              </div>
             </li>
-            <li class="reveal">
-              <span>GZ 01—08</span>
-              <h3>COMICUP GZ</h3>
-              <p>合作媒体 · 同人文化影像记录</p>
+            <li class="reveal experience-brand">
+              <img src="./assets/logos/COMICUP.webp" alt="" />
+              <div>
+                <span>GZ 01—08</span>
+                <h3>COMICUP GZ</h3>
+                <p>合作媒体 · 同人文化影像记录</p>
+              </div>
             </li>
             <li class="reveal">
               <span>MORE</span>
@@ -641,12 +659,12 @@
             </p>
           </div>
           <div class="team-stats reveal" aria-label="团队数据">
-            <div><strong>29.6万+</strong><span>已录入抖音粉丝合计</span></div>
+            <div><strong>48.8万+</strong><span>已录入全网粉丝合计</span></div>
             <div><strong>8</strong><span>位创作成员</span></div>
             <div><strong>3</strong><span>平台粉丝矩阵</span></div>
           </div>
           <p class="platform-note reveal">
-            粉丝统计平台：抖音 / 小红书 / 哔哩哔哩；当前合计仅统计已录入的抖音数据。
+            粉丝统计平台：抖音 / 小红书 / 哔哩哔哩。
           </p>
           <div class="team-grid">
             <article class="member reveal">
@@ -890,6 +908,6 @@
     <div class="toast" role="status" aria-live="polite" data-toast>
       已复制微信号
     </div>
-    <script src="./script.js?v=20261029-9"></script>
+    <script src="./script.js?v=20261029-10"></script>
   </body>
 </html>
