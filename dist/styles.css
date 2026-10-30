@@ -400,7 +400,7 @@ button {
 }
 .intro-detail {
   position: relative;
-  top: 80px;
+  top: 180px;
   grid-column: 3;
   grid-row: 1;
   padding-top: 80px;
