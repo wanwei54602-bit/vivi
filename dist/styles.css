@@ -1073,7 +1073,8 @@ button {
 .team-intro h2 {
   grid-column: 2;
 }
-.team-intro > p {
+.team-intro-side p {
+  margin: 0;
   color: var(--muted);
 }
 .team-stats {
@@ -1212,6 +1213,30 @@ button {
   background: var(--purple);
   color: #fff;
 }
+.member-quote {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 40px;
+  margin-top: 8px;
+  padding: 9px 12px;
+  border: 1px solid #ffffff20;
+  background: transparent;
+  color: #c6c1ce;
+  font-size: 11px;
+  cursor: pointer;
+  transition:
+    border-color 0.2s,
+    color 0.2s,
+    background 0.2s;
+}
+.member-quote:hover,
+.member-quote:focus-visible {
+  border-color: #a98bff;
+  background: #a98bff12;
+  color: #fff;
+}
 .contact {
   position: relative;
   overflow: hidden;
@@ -1343,6 +1368,251 @@ button {
   max-height: 78vh;
   background: #000;
 }
+.quote-modal {
+  width: min(1120px, calc(100% - 32px));
+  max-height: min(88vh, 920px);
+  padding: 0;
+  border: 1px solid #ffffff24;
+  border-radius: 8px;
+  background: #0d0d12;
+  color: #fff;
+  box-shadow: 0 34px 120px #000;
+  overflow: hidden;
+}
+.quote-modal.member-rate {
+  width: min(760px, calc(100% - 32px));
+}
+.quote-modal.member-rate .quote-grid {
+  grid-template-columns: 1fr;
+}
+.quote-card[hidden] {
+  display: none;
+}
+.quote-modal::backdrop {
+  background: #050508e6;
+  backdrop-filter: blur(10px);
+}
+.quote-modal-shell {
+  max-height: min(88vh, 920px);
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+.quote-modal-header {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  min-height: 112px;
+  padding: 24px 30px;
+  border-bottom: 1px solid var(--line);
+  background: #0d0d12f2;
+  backdrop-filter: blur(18px);
+}
+.quote-modal-header p {
+  margin: 0 0 8px;
+  color: #a98bff;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+}
+.quote-modal-header h2 {
+  margin: 0;
+  font-size: clamp(28px, 4vw, 46px);
+  line-height: 0.95;
+}
+.quote-modal-header button {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid #ffffff2b;
+  border-radius: 50%;
+  background: #ffffff08;
+  color: #fff;
+  font-size: 28px;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+.quote-modal-header button:hover,
+.quote-modal-header button:focus-visible {
+  border-color: #a98bff;
+  background: #a98bff;
+  outline: none;
+  box-shadow: 0 0 0 3px #a98bff2e;
+}
+.quote-modal-body {
+  padding: 30px;
+}
+.quote-lead {
+  max-width: 760px;
+  margin: 0 0 28px;
+  color: #b8b4c2;
+  font-size: 14px;
+  line-height: 1.8;
+}
+.quote-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+.quote-card {
+  padding: 24px;
+  border: 1px solid #ffffff12;
+  background: #15151b;
+}
+.quote-card-featured {
+  background: linear-gradient(135deg, #6c45d933, #15151b 70%);
+  border-color: #9f7cff4a;
+}
+.quote-card-wide {
+  grid-column: 1 / -1;
+}
+.quote-card-muted {
+  background: #121217;
+}
+.quote-card-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--line);
+}
+.quote-card-heading > span {
+  display: grid;
+  place-items: center;
+  min-width: 34px;
+  height: 24px;
+  border: 1px solid #a98bff66;
+  border-radius: 999px;
+  color: #c9b8ff;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+}
+.quote-card-heading h3 {
+  margin: 0;
+  font-size: 18px;
+}
+.quote-card-heading p {
+  margin: 5px 0 0;
+  color: #8f8b99;
+  font-size: 11px;
+}
+.quote-status {
+  display: inline-flex;
+  margin: 20px 0 4px;
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: #9f7cff24;
+  color: #d7ccff;
+  font-size: 11px;
+}
+.quote-card ul {
+  margin: 14px 0 0;
+  padding-left: 18px;
+  color: #c7c3ce;
+  font-size: 13px;
+  line-height: 1.9;
+}
+.quote-list {
+  margin: 12px 0 0;
+}
+.quote-list > div {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid #ffffff0c;
+}
+.quote-list > div:last-child {
+  border-bottom: 0;
+}
+.quote-list dt {
+  color: #aaa6b2;
+  font-size: 12px;
+}
+.quote-list dd {
+  margin: 0;
+  color: #d7d2de;
+  font-size: 12px;
+  text-align: right;
+}
+.quote-list dd b {
+  color: #d3c4ff;
+  font-size: 18px;
+}
+.quote-list dd small {
+  display: block;
+  margin-top: 3px;
+  color: #8f8b99;
+  font-size: 10px;
+}
+.quote-packages {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 18px;
+}
+.quote-packages article {
+  padding: 18px;
+  background: #0d0d12;
+  border: 1px solid #ffffff0f;
+}
+.quote-packages article > p {
+  margin: 0 0 7px;
+  color: #a98bff;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+}
+.quote-packages h4 {
+  min-height: 42px;
+  margin: 0 0 15px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.quote-packages article > div {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+  border-top: 1px solid #ffffff0d;
+  color: #a9a5b0;
+  font-size: 11px;
+}
+.quote-packages article > div + div {
+  margin-top: 10px;
+}
+.quote-packages b {
+  color: #d3c4ff;
+  font-size: 17px;
+}
+.quote-terms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+.quote-terms span {
+  padding: 7px 9px;
+  border: 1px solid #ffffff12;
+  color: #aaa6b2;
+  font-size: 10px;
+}
+.quote-empty {
+  margin: 20px 0 0;
+  color: #aaa6b2;
+  font-size: 13px;
+  line-height: 1.8;
+}
+.quote-footnote {
+  margin: 22px 0 0;
+  color: #817d89;
+  font-size: 10px;
+  line-height: 1.7;
+}
 .modal-bar {
   height: 56px;
   display: flex;
@@ -1360,6 +1630,15 @@ button {
   color: #fff;
   font-size: 30px;
   cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+.modal-bar button:focus-visible {
+  color: #c8b6ff;
+  outline: none;
+  text-shadow: 0 0 14px #a98bff80;
 }
 .toast {
   position: fixed;
@@ -1456,6 +1735,9 @@ button {
   .section-heading h2,
   .team-intro h2 {
     grid-column: auto;
+  }
+  .team-intro-side {
+    max-width: 560px;
   }
   .intro-grid > .section-kicker,
   .intro-copy,
@@ -1719,6 +2001,39 @@ button {
   }
   .modal-bar {
     height: 50px;
+  }
+  .quote-modal {
+    width: 100%;
+    max-height: 100dvh;
+    border: 0;
+    border-radius: 0;
+  }
+  .quote-modal-shell {
+    max-height: 100dvh;
+  }
+  .quote-modal-header {
+    min-height: 94px;
+    padding: 20px;
+  }
+  .quote-modal-body {
+    padding: 20px;
+  }
+  .quote-grid,
+  .quote-packages {
+    grid-template-columns: 1fr;
+  }
+  .quote-card-wide {
+    grid-column: auto;
+  }
+  .quote-card {
+    padding: 20px;
+  }
+  .quote-list > div {
+    grid-template-columns: 0.85fr 1.4fr;
+    gap: 10px;
+  }
+  .quote-packages h4 {
+    min-height: 0;
   }
 }
 @media (prefers-reduced-motion: reduce) {

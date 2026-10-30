@@ -8,6 +8,10 @@ const modalVideo = document.querySelector("[data-modal-video]");
 const modalTitle = document.querySelector("[data-modal-title]");
 const toast = document.querySelector("[data-toast]");
 const backToTop = document.querySelector("[data-back-to-top]");
+const quoteModal = document.querySelector("[data-quote-modal]");
+const quoteClose = document.querySelector("[data-quote-close]");
+const quoteTitle = document.querySelector("[data-quote-title]");
+const quoteCards = [...document.querySelectorAll(".quote-card")];
 
 function updateScrollUi() {
   header.classList.toggle("scrolled", scrollY > 24);
@@ -310,6 +314,35 @@ modal.addEventListener("cancel", (event) => {
   closeModal();
 });
 
+let lastQuoteTrigger = null;
+function openQuoteModal(name, trigger) {
+  const matchedCard = quoteCards.find(
+    (card) => card.querySelector("h3").textContent.trim() === name,
+  );
+  if (!matchedCard) return;
+  quoteCards.forEach((card) => {
+    card.hidden = card !== matchedCard;
+  });
+  quoteTitle.textContent = `${name} · 个人报价`;
+  lastQuoteTrigger = trigger;
+  quoteModal.classList.add("member-rate");
+  quoteModal.showModal();
+  document.body.style.overflow = "hidden";
+}
+function closeQuoteModal() {
+  quoteModal.close();
+  document.body.style.overflow = "";
+  lastQuoteTrigger?.focus({ preventScroll: true });
+}
+quoteClose.addEventListener("click", closeQuoteModal);
+quoteModal.addEventListener("click", (event) => {
+  if (event.target === quoteModal) closeQuoteModal();
+});
+quoteModal.addEventListener("cancel", (event) => {
+  event.preventDefault();
+  closeQuoteModal();
+});
+
 const memberContacts = {
   创摄萌: "CSM54602",
   "戏天（可愛い）": "MH13610526149",
@@ -366,7 +399,13 @@ document.querySelectorAll(".team-grid .member").forEach((member) => {
   button.dataset.copyContact = memberContacts[name];
   button.setAttribute("aria-label", `复制${name}微信号并发起合作`);
   button.innerHTML = "发起合作 <span>↗</span>";
-  member.querySelector(".member-copy").append(button);
+  const quoteButton = document.createElement("button");
+  quoteButton.type = "button";
+  quoteButton.className = "member-quote";
+  quoteButton.setAttribute("aria-label", `查看${name}的个人报价`);
+  quoteButton.innerHTML = "个人报价 <span>↗</span>";
+  quoteButton.addEventListener("click", () => openQuoteModal(name, quoteButton));
+  member.querySelector(".member-copy").append(button, quoteButton);
 });
 
 document.querySelectorAll("[data-copy-contact]").forEach((button) =>
